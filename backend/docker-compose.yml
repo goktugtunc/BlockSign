@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my-mysql-algo
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}r
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - algo_mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - algonetwork
+  
+  phpmyadmin:
+    image: linuxserver/phpmyadmin
+    container_name: my-phpmyadmin-algo
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${PMA_PORT}:80"
+    restart: always
+    networks:
+      - algonetwork
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    container_name: my-backend-algo
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "${BACKEND_PORT}:8000"
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      - algonetwork
+
+
+volumes:
+  algo_mysql_data:
+
+networks:
+  algonetwork:
+    driver: bridge
+

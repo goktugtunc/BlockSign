@@ -1,0 +1,1854 @@
+#pragma version 10
+#pragma typetrack false
+
+// smart_contracts.blocksign.contract.Blocksign.__algopy_entrypoint_with_init() -> uint64:
+main:
+    intcblock 0 1 32 3
+    bytecblock 0x 0x151f7c75 0x7367685f 0x64656c5f 0x73676e5f 0x6173615f 0x7568735f
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@16
+    pushbytess 0xc0537c9b 0xbf15d277 0x8f1a3e92 0x1a7bd4a9 0x7e74c218 0x631c1e7b 0x4741f553 0xa6ec16ff 0xb769690e 0x139fe2b8 0x2960d672 // method "create_contract(byte[],address[])uint64", method "cancel(byte[])uint64", method "sign(byte[],address)uint64", method "issign(byte[])uint64", method "iscomplete(byte[])uint64", method "reject(byte[],address)uint64", method "my_contracts()byte[]", method "get_asset_id(byte[])uint64", method "is_active(byte[])uint64", method "total_signers(byte[])uint64", method "signed_count(byte[])uint64"
+    txna ApplicationArgs 0
+    match main_create_contract_route@5 main_cancel_route@6 main_sign_route@7 main_issign_route@8 main_iscomplete_route@9 main_reject_route@10 main_my_contracts_route@11 main_get_asset_id_route@12 main_is_active_route@13 main_total_signers_route@14 main_signed_count_route@15
+
+main_after_if_else@18:
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    intc_0 // 0
+    return
+
+main_signed_count_route@15:
+    // smart_contracts/blocksign/contract.py:344
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:344
+    // @arc4.abimethod()
+    callsub signed_count
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_total_signers_route@14:
+    // smart_contracts/blocksign/contract.py:331
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:331
+    // @arc4.abimethod()
+    callsub total_signers
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_is_active_route@13:
+    // smart_contracts/blocksign/contract.py:324
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:324
+    // @arc4.abimethod()
+    callsub is_active
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_get_asset_id_route@12:
+    // smart_contracts/blocksign/contract.py:316-317
+    // # ---- Ayrı okuma metodları (tuple yerine) ----
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:316-317
+    // # ---- Ayrı okuma metodları (tuple yerine) ----
+    // @arc4.abimethod()
+    callsub get_asset_id
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_my_contracts_route@11:
+    // smart_contracts/blocksign/contract.py:304
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    callsub my_contracts
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_reject_route@10:
+    // smart_contracts/blocksign/contract.py:271
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    txna ApplicationArgs 2
+    // smart_contracts/blocksign/contract.py:271
+    // @arc4.abimethod()
+    callsub reject
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_iscomplete_route@9:
+    // smart_contracts/blocksign/contract.py:239
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:239
+    // @arc4.abimethod()
+    callsub iscomplete
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_issign_route@8:
+    // smart_contracts/blocksign/contract.py:223
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:223
+    // @arc4.abimethod()
+    callsub issign
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_sign_route@7:
+    // smart_contracts/blocksign/contract.py:186
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    txna ApplicationArgs 2
+    // smart_contracts/blocksign/contract.py:186
+    // @arc4.abimethod()
+    callsub sign
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_cancel_route@6:
+    // smart_contracts/blocksign/contract.py:165
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    // smart_contracts/blocksign/contract.py:165
+    // @arc4.abimethod()
+    callsub cancel
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_create_contract_route@5:
+    // smart_contracts/blocksign/contract.py:72
+    // @arc4.abimethod()
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txna ApplicationArgs 1
+    txna ApplicationArgs 2
+    // smart_contracts/blocksign/contract.py:72
+    // @arc4.abimethod()
+    callsub create_contract
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_bare_routing@16:
+    // smart_contracts/blocksign/contract.py:20
+    // class Blocksign(ARC4Contract):
+    txn OnCompletion
+    bnz main_after_if_else@18
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_1 // 1
+    return
+
+
+// smart_contracts.blocksign.contract.Blocksign.create_contract(file_hash: bytes, signers: bytes) -> uint64:
+create_contract:
+    // smart_contracts/blocksign/contract.py:72-77
+    // @arc4.abimethod()
+    // def create_contract(
+    //     self,
+    //     file_hash: arc4.DynamicBytes,
+    //     signers: arc4.DynamicArray[arc4.Address],
+    // ) -> UInt64:
+    proto 2 1
+    intc_0 // 0
+    dupn 4
+    bytec_0 // ""
+    dupn 9
+    // smart_contracts/blocksign/contract.py:78-79
+    // # --- 0) Önkoşullar ---
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -2
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:80
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    bz create_contract_bool_false@3
+    frame_dig 15
+    intc_1 // 1
+    ==
+    bz create_contract_bool_false@3
+    intc_1 // 1
+
+create_contract_bool_merge@4:
+    // smart_contracts/blocksign/contract.py:80
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    !
+    assert // hash canceled
+    // smart_contracts/blocksign/contract.py:82-83
+    // # --- 1) Ödeme doğrulama ---
+    // assert Global.group_size == 2, "group must be size 2 (Payment + AppCall)"
+    global GroupSize
+    pushint 2 // 2
+    ==
+    assert // group must be size 2 (Payment + AppCall)
+    // smart_contracts/blocksign/contract.py:85
+    // pay = gtxn.PaymentTransaction(PAYMENT_INDEX)
+    intc_0 // 0
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    intc_0 // 0
+    // smart_contracts/blocksign/contract.py:86
+    // assert pay.receiver == Global.current_application_address, "payment must go to app address"
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert // payment must go to app address
+    // smart_contracts/blocksign/contract.py:85
+    // pay = gtxn.PaymentTransaction(PAYMENT_INDEX)
+    intc_0 // 0
+    // smart_contracts/blocksign/contract.py:87
+    // assert pay.amount >= FIVE_ALGO, "insufficient payment: need >= 5 ALGO"
+    gtxns Amount
+    pushint 5000000 // 5000000
+    >=
+    assert // insufficient payment: need >= 5 ALGO
+    // smart_contracts/blocksign/contract.py:85
+    // pay = gtxn.PaymentTransaction(PAYMENT_INDEX)
+    intc_0 // 0
+    // smart_contracts/blocksign/contract.py:88
+    // assert pay.sender == Txn.sender, "payer must be the caller"
+    gtxns Sender
+    txn Sender
+    ==
+    assert // payer must be the caller
+    // smart_contracts/blocksign/contract.py:85
+    // pay = gtxn.PaymentTransaction(PAYMENT_INDEX)
+    intc_0 // 0
+    // smart_contracts/blocksign/contract.py:89
+    // assert pay.rekey_to == Global.zero_address, "rekey not allowed"
+    gtxns RekeyTo
+    global ZeroAddress
+    ==
+    assert // rekey not allowed
+    // smart_contracts/blocksign/contract.py:85
+    // pay = gtxn.PaymentTransaction(PAYMENT_INDEX)
+    intc_0 // 0
+    // smart_contracts/blocksign/contract.py:90
+    // assert pay.close_remainder_to == Global.zero_address, "close not allowed"
+    gtxns CloseRemainderTo
+    global ZeroAddress
+    ==
+    assert // close not allowed
+    // smart_contracts/blocksign/contract.py:92-93
+    // # --- 2) Daha önce mint edilmiş mi? ---
+    // existing_id, exists = self.asset_by_hash.maybe(file_hash)
+    bytec 5 // 0x6173615f
+    frame_dig -2
+    concat
+    dup
+    frame_bury 2
+    box_get
+    swap
+    btoi
+    frame_bury 5
+    // smart_contracts/blocksign/contract.py:94
+    // if exists:
+    bz create_contract_after_if_else@15
+    // smart_contracts/blocksign/contract.py:97
+    // blob_u, has_u = self.user_hashes.maybe(user_key)
+    bytec 6 // 0x7568735f
+    // smart_contracts/blocksign/contract.py:95-96
+    // # Kullanıcı indeksine ekli değilse ekle (idempotent)
+    // user_key = arc4.Address(Txn.sender.bytes)
+    txn Sender
+    // smart_contracts/blocksign/contract.py:97
+    // blob_u, has_u = self.user_hashes.maybe(user_key)
+    concat
+    dup
+    frame_bury 3
+    box_get
+    swap
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:98
+    // if not has_u:
+    bnz create_contract_after_if_else@7
+    // smart_contracts/blocksign/contract.py:99
+    // blob_u = Bytes(b"")
+    bytec_0 // 0x
+    frame_bury 1
+
+create_contract_after_if_else@7:
+    // smart_contracts/blocksign/contract.py:100
+    // i0 = UInt64(0)
+    intc_0 // 0
+    frame_bury 7
+    // smart_contracts/blocksign/contract.py:101
+    // present = UInt64(0)
+    intc_0 // 0
+    frame_bury 11
+
+create_contract_while_top@8:
+    // smart_contracts/blocksign/contract.py:102
+    // while i0 < blob_u.length:
+    frame_dig 1
+    len
+    dup
+    frame_bury 13
+    frame_dig 7
+    >
+    frame_dig 11
+    frame_bury 12
+    bz create_contract_after_while@12
+    // smart_contracts/blocksign/contract.py:103
+    // if blob_u[i0 : i0 + UInt64(32)] == file_hash.bytes:
+    frame_dig 7
+    dup
+    frame_dig 13
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 7
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 1
+    cover 2
+    substring3
+    frame_dig -2
+    ==
+    bz create_contract_while_top@8
+    // smart_contracts/blocksign/contract.py:104
+    // present = UInt64(1)
+    intc_1 // 1
+    frame_bury 12
+
+create_contract_after_while@12:
+    frame_dig 12
+    // smart_contracts/blocksign/contract.py:107
+    // if present == UInt64(0):
+    bnz create_contract_after_if_else@14
+    // smart_contracts/blocksign/contract.py:108
+    // self.user_hashes[user_key] = blob_u + file_hash.bytes
+    frame_dig 1
+    frame_dig -2
+    concat
+    frame_dig 3
+    dup
+    box_del
+    pop
+    swap
+    box_put
+
+create_contract_after_if_else@14:
+    // smart_contracts/blocksign/contract.py:109
+    // return existing_id
+    frame_dig 5
+    frame_bury 0
+    retsub
+
+create_contract_after_if_else@15:
+    // smart_contracts/blocksign/contract.py:111-112
+    // # --- 3) NFT mint (inner txn) ---
+    // prefix: Bytes = file_hash.bytes[:8]  # label için ilk 8 bayt
+    frame_dig -2
+    len
+    pushint 8 // 8
+    dig 1
+    >=
+    pushint 8 // 8
+    cover 2
+    select
+    frame_dig -2
+    intc_0 // 0
+    uncover 2
+    substring3
+    // smart_contracts/blocksign/contract.py:113
+    // asset_name: Bytes = Bytes(b"FILE-") + prefix
+    pushbytes 0x46494c452d
+    swap
+    concat
+    // smart_contracts/blocksign/contract.py:116-126
+    // mint_res = itxn.AssetConfig(
+    //     total=UInt64(1),
+    //     decimals=UInt64(0),
+    //     default_frozen=False,
+    //     unit_name=unit_name,
+    //     asset_name=asset_name,
+    //     manager=Global.current_application_address,  # ASA yönetimi sözleşmede
+    //     reserve=Global.zero_address,
+    //     freeze=Global.zero_address,
+    //     clawback=Global.zero_address,
+    // ).submit()
+    itxn_begin
+    // smart_contracts/blocksign/contract.py:122
+    // manager=Global.current_application_address,  # ASA yönetimi sözleşmede
+    global CurrentApplicationAddress
+    // smart_contracts/blocksign/contract.py:123
+    // reserve=Global.zero_address,
+    global ZeroAddress
+    // smart_contracts/blocksign/contract.py:124-125
+    // freeze=Global.zero_address,
+    // clawback=Global.zero_address,
+    dupn 2
+    itxn_field ConfigAssetClawback
+    itxn_field ConfigAssetFreeze
+    itxn_field ConfigAssetReserve
+    itxn_field ConfigAssetManager
+    itxn_field ConfigAssetName
+    // smart_contracts/blocksign/contract.py:114
+    // unit_name: Bytes = Bytes(b"FILE")
+    pushbytes 0x46494c45
+    itxn_field ConfigAssetUnitName
+    // smart_contracts/blocksign/contract.py:119
+    // default_frozen=False,
+    intc_0 // 0
+    itxn_field ConfigAssetDefaultFrozen
+    // smart_contracts/blocksign/contract.py:118
+    // decimals=UInt64(0),
+    intc_0 // 0
+    itxn_field ConfigAssetDecimals
+    // smart_contracts/blocksign/contract.py:117
+    // total=UInt64(1),
+    intc_1 // 1
+    itxn_field ConfigAssetTotal
+    // smart_contracts/blocksign/contract.py:116
+    // mint_res = itxn.AssetConfig(
+    intc_3 // acfg
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/blocksign/contract.py:116-126
+    // mint_res = itxn.AssetConfig(
+    //     total=UInt64(1),
+    //     decimals=UInt64(0),
+    //     default_frozen=False,
+    //     unit_name=unit_name,
+    //     asset_name=asset_name,
+    //     manager=Global.current_application_address,  # ASA yönetimi sözleşmede
+    //     reserve=Global.zero_address,
+    //     freeze=Global.zero_address,
+    //     clawback=Global.zero_address,
+    // ).submit()
+    itxn_submit
+    itxn CreatedAssetID
+    dup
+    frame_bury 9
+    // smart_contracts/blocksign/contract.py:130-131
+    // # --- 4) Eşlemeleri kaydet ---
+    // self.asset_by_hash[file_hash] = asset_id
+    itob
+    frame_dig 2
+    swap
+    box_put
+    // smart_contracts/blocksign/contract.py:132
+    // self.admin_by_hash[file_hash] = Global.creator_address
+    global CreatorAddress
+    pushbytes 0x61646d5f
+    frame_dig -2
+    concat
+    swap
+    box_put
+    // smart_contracts/blocksign/contract.py:134-135
+    // # --- 5) İmzacıları (sgn_) sakla
+    // blob: Bytes = Bytes(b"")
+    bytec_0 // 0x
+    frame_bury 0
+    // smart_contracts/blocksign/contract.py:136
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 6
+    // smart_contracts/blocksign/contract.py:137
+    // n = signers.length
+    frame_dig -1
+    intc_0 // 0
+    extract_uint16
+    frame_bury 10
+
+create_contract_while_top@17:
+    // smart_contracts/blocksign/contract.py:138
+    // while i < n:
+    frame_dig 6
+    frame_dig 10
+    <
+    bz create_contract_after_while@19
+    // smart_contracts/blocksign/contract.py:139
+    // addr = signers[i]          # arc4.Address
+    frame_dig -1
+    extract 2 0
+    frame_dig 6
+    dup
+    cover 2
+    intc_2 // 32
+    *
+    intc_2 // 32
+    extract3 // on error: Index access is out of bounds
+    // smart_contracts/blocksign/contract.py:140
+    // blob = blob + addr.bytes   # 32 bayt ekle
+    frame_dig 0
+    swap
+    concat
+    frame_bury 0
+    // smart_contracts/blocksign/contract.py:141
+    // i = i + UInt64(1)
+    intc_1 // 1
+    +
+    frame_bury 6
+    b create_contract_while_top@17
+
+create_contract_after_while@19:
+    // smart_contracts/blocksign/contract.py:142
+    // self.signers_blob_by_hash[file_hash] = blob
+    bytec 4 // 0x73676e5f
+    frame_dig -2
+    concat
+    dup
+    box_del
+    pop
+    frame_dig 0
+    box_put
+    // smart_contracts/blocksign/contract.py:144-145
+    // # sgh_ (signed) başlangıçta boş
+    // self.signed_blob_by_hash[file_hash] = Bytes(b"")
+    bytec_2 // 0x7367685f
+    frame_dig -2
+    concat
+    dup
+    box_del
+    pop
+    bytec_0 // 0x
+    box_put
+    // smart_contracts/blocksign/contract.py:149
+    // blob_u, has_u = self.user_hashes.maybe(user_key)
+    bytec 6 // 0x7568735f
+    // smart_contracts/blocksign/contract.py:147-148
+    // # --- 6) Kullanıcı indeksine (uhs_) ekle (idempotent) ---
+    // user_key = arc4.Address(Txn.sender.bytes)
+    txn Sender
+    // smart_contracts/blocksign/contract.py:149
+    // blob_u, has_u = self.user_hashes.maybe(user_key)
+    concat
+    dup
+    frame_bury 4
+    box_get
+    swap
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:150
+    // if not has_u:
+    bnz create_contract_after_if_else@21
+    // smart_contracts/blocksign/contract.py:151
+    // blob_u = Bytes(b"")
+    bytec_0 // 0x
+    frame_bury 1
+
+create_contract_after_if_else@21:
+    // smart_contracts/blocksign/contract.py:152
+    // j = UInt64(0)
+    intc_0 // 0
+    frame_bury 8
+    // smart_contracts/blocksign/contract.py:153
+    // present = UInt64(0)
+    intc_0 // 0
+    frame_bury 11
+
+create_contract_while_top@22:
+    // smart_contracts/blocksign/contract.py:154
+    // while j < blob_u.length:
+    frame_dig 1
+    len
+    dup
+    frame_bury 14
+    frame_dig 8
+    >
+    frame_dig 11
+    frame_bury 12
+    bz create_contract_after_while@26
+    // smart_contracts/blocksign/contract.py:155
+    // if blob_u[j : j + UInt64(32)] == file_hash.bytes:
+    frame_dig 8
+    dup
+    frame_dig 14
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 8
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 1
+    cover 2
+    substring3
+    frame_dig -2
+    ==
+    bz create_contract_while_top@22
+    // smart_contracts/blocksign/contract.py:156
+    // present = UInt64(1)
+    intc_1 // 1
+    frame_bury 12
+
+create_contract_after_while@26:
+    frame_dig 12
+    // smart_contracts/blocksign/contract.py:159
+    // if present == UInt64(0):
+    bnz create_contract_after_if_else@28
+    // smart_contracts/blocksign/contract.py:160
+    // self.user_hashes[user_key] = blob_u + file_hash.bytes
+    frame_dig 1
+    frame_dig -2
+    concat
+    frame_dig 4
+    dup
+    box_del
+    pop
+    swap
+    box_put
+
+create_contract_after_if_else@28:
+    // smart_contracts/blocksign/contract.py:162-163
+    // # --- 7) asset_id döndür ---
+    // return asset_id
+    frame_dig 9
+    frame_bury 0
+    retsub
+
+create_contract_bool_false@3:
+    intc_0 // 0
+    b create_contract_bool_merge@4
+
+
+// smart_contracts.blocksign.contract.Blocksign.cancel(file_hash: bytes) -> uint64:
+cancel:
+    // smart_contracts/blocksign/contract.py:165-166
+    // @arc4.abimethod()
+    // def cancel(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    // smart_contracts/blocksign/contract.py:167
+    // assert Txn.sender == Global.creator_address, "only app creator can cancel"
+    txn Sender
+    global CreatorAddress
+    ==
+    assert // only app creator can cancel
+    // smart_contracts/blocksign/contract.py:169
+    // asset_id, exists = self.asset_by_hash.maybe(file_hash)
+    bytec 5 // 0x6173615f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:170
+    // assert exists, "hash not found"
+    assert // hash not found
+    // smart_contracts/blocksign/contract.py:172
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -1
+    concat
+    dup
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:173
+    // assert not (canceled_exists and canceled_flag == 1), "already canceled"
+    bz cancel_bool_false@3
+    frame_dig 2
+    intc_1 // 1
+    ==
+    bz cancel_bool_false@3
+    intc_1 // 1
+
+cancel_bool_merge@4:
+    // smart_contracts/blocksign/contract.py:173
+    // assert not (canceled_exists and canceled_flag == 1), "already canceled"
+    !
+    assert // already canceled
+    // smart_contracts/blocksign/contract.py:175-178
+    // # ASA delete dene (manager = app address ve arz app'te olmalı)
+    // itxn.AssetConfig(
+    //     config_asset=Asset(asset_id),
+    // ).submit()
+    itxn_begin
+    frame_dig 0
+    dup
+    itxn_field ConfigAsset
+    // smart_contracts/blocksign/contract.py:175-176
+    // # ASA delete dene (manager = app address ve arz app'te olmalı)
+    // itxn.AssetConfig(
+    intc_3 // acfg
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/blocksign/contract.py:175-178
+    // # ASA delete dene (manager = app address ve arz app'te olmalı)
+    // itxn.AssetConfig(
+    //     config_asset=Asset(asset_id),
+    // ).submit()
+    itxn_submit
+    // smart_contracts/blocksign/contract.py:180
+    // self.canceled_by_hash[file_hash] = UInt64(1)
+    intc_1 // 1
+    itob
+    frame_dig 1
+    swap
+    box_put
+    // smart_contracts/blocksign/contract.py:181
+    // self.signers_blob_by_hash[file_hash] = Bytes(b"")
+    bytec 4 // 0x73676e5f
+    frame_dig -1
+    concat
+    dup
+    box_del
+    pop
+    bytec_0 // 0x
+    box_put
+    // smart_contracts/blocksign/contract.py:182
+    // self.signed_blob_by_hash[file_hash] = Bytes(b"")
+    bytec_2 // 0x7367685f
+    frame_dig -1
+    concat
+    dup
+    box_del
+    pop
+    bytec_0 // 0x
+    box_put
+    // smart_contracts/blocksign/contract.py:184
+    // return asset_id
+    frame_bury 0
+    retsub
+
+cancel_bool_false@3:
+    intc_0 // 0
+    b cancel_bool_merge@4
+
+
+// smart_contracts.blocksign.contract.Blocksign.sign(file_hash: bytes, signer: bytes) -> uint64:
+sign:
+    // smart_contracts/blocksign/contract.py:186-187
+    // @arc4.abimethod()
+    // def sign(self, file_hash: arc4.DynamicBytes, signer: arc4.Address) -> UInt64:
+    proto 2 1
+    intc_0 // 0
+    dupn 2
+    bytec_0 // ""
+    dupn 5
+    // smart_contracts/blocksign/contract.py:188
+    // assert Global.group_size == 1, "invalid group size"
+    global GroupSize
+    intc_1 // 1
+    ==
+    assert // invalid group size
+    // smart_contracts/blocksign/contract.py:190
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -2
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:191
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    bz sign_bool_false@3
+    frame_dig 9
+    intc_1 // 1
+    ==
+    bz sign_bool_false@3
+    intc_1 // 1
+
+sign_bool_merge@4:
+    // smart_contracts/blocksign/contract.py:191
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    !
+    assert // hash canceled
+    // smart_contracts/blocksign/contract.py:193
+    // _asset_id, exists = self.asset_by_hash.maybe(file_hash)
+    bytec 5 // 0x6173615f
+    frame_dig -2
+    concat
+    box_get
+    bury 1
+    // smart_contracts/blocksign/contract.py:194
+    // assert exists, "hash not found"
+    assert // hash not found
+    // smart_contracts/blocksign/contract.py:196
+    // assert signer.bytes == Txn.sender.bytes, "sender mismatch"
+    frame_dig -1
+    txn Sender
+    ==
+    assert // sender mismatch
+    // smart_contracts/blocksign/contract.py:198
+    // sgn_blob, has_sgn = self.signers_blob_by_hash.maybe(file_hash)
+    bytec 4 // 0x73676e5f
+    frame_dig -2
+    concat
+    box_get
+    swap
+    frame_bury 2
+    // smart_contracts/blocksign/contract.py:199
+    // assert has_sgn, "no signers set"
+    assert // no signers set
+    // smart_contracts/blocksign/contract.py:201
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 5
+    // smart_contracts/blocksign/contract.py:202
+    // authorized = UInt64(0)
+    intc_0 // 0
+    frame_bury 3
+
+sign_while_top@5:
+    // smart_contracts/blocksign/contract.py:203
+    // while i < sgn_blob.length:
+    frame_dig 2
+    len
+    dup
+    frame_bury 8
+    frame_dig 5
+    >
+    frame_dig 3
+    frame_bury 4
+    bz sign_after_while@9
+    // smart_contracts/blocksign/contract.py:204
+    // if sgn_blob[i : i + UInt64(32)] == signer.bytes:
+    frame_dig 5
+    dup
+    frame_dig 8
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 5
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 2
+    cover 2
+    substring3
+    frame_dig -1
+    ==
+    bz sign_while_top@5
+    // smart_contracts/blocksign/contract.py:205
+    // authorized = UInt64(1)
+    intc_1 // 1
+    frame_bury 4
+
+sign_after_while@9:
+    frame_dig 4
+    // smart_contracts/blocksign/contract.py:208
+    // assert authorized == UInt64(1), "unauthorized signer"
+    intc_1 // 1
+    ==
+    assert // unauthorized signer
+    // smart_contracts/blocksign/contract.py:210
+    // sgh_blob, has_sgh = self.signed_blob_by_hash.maybe(file_hash)
+    bytec_2 // 0x7367685f
+    frame_dig -2
+    concat
+    dup
+    frame_bury 0
+    box_get
+    swap
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:211
+    // if not has_sgh:
+    bnz sign_after_if_else@11
+    // smart_contracts/blocksign/contract.py:212
+    // sgh_blob = Bytes(b"")
+    bytec_0 // 0x
+    frame_bury 1
+
+sign_after_if_else@11:
+    // smart_contracts/blocksign/contract.py:214
+    // j = UInt64(0)
+    intc_0 // 0
+    frame_bury 6
+
+sign_while_top@12:
+    // smart_contracts/blocksign/contract.py:215
+    // while j < sgh_blob.length:
+    frame_dig 1
+    len
+    dup
+    frame_bury 7
+    frame_dig 6
+    >
+    bz sign_after_while@16
+    // smart_contracts/blocksign/contract.py:216
+    // if sgh_blob[j : j + UInt64(32)] == signer.bytes:
+    frame_dig 6
+    dup
+    frame_dig 7
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 6
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 1
+    cover 2
+    substring3
+    frame_dig -1
+    ==
+    bz sign_while_top@12
+    // smart_contracts/blocksign/contract.py:217
+    // return UInt64(1)  # idempotent
+    intc_1 // 1
+    frame_bury 0
+    retsub
+
+sign_after_while@16:
+    // smart_contracts/blocksign/contract.py:220
+    // self.signed_blob_by_hash[file_hash] = sgh_blob + signer.bytes
+    frame_dig 1
+    frame_dig -1
+    concat
+    frame_dig 0
+    dup
+    box_del
+    pop
+    swap
+    box_put
+    // smart_contracts/blocksign/contract.py:221
+    // return UInt64(1)
+    intc_1 // 1
+    frame_bury 0
+    retsub
+
+sign_bool_false@3:
+    intc_0 // 0
+    b sign_bool_merge@4
+
+
+// smart_contracts.blocksign.contract.Blocksign.issign(file_hash: bytes) -> uint64:
+issign:
+    // smart_contracts/blocksign/contract.py:223-224
+    // @arc4.abimethod()
+    // def issign(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    bytec_0 // ""
+    dup
+    // smart_contracts/blocksign/contract.py:225
+    // assert Global.group_size == 1, "invalid group size"
+    global GroupSize
+    intc_1 // 1
+    ==
+    assert // invalid group size
+    // smart_contracts/blocksign/contract.py:227
+    // sgh_blob, has_sgh = self.signed_blob_by_hash.maybe(file_hash)
+    bytec_2 // 0x7367685f
+    frame_dig -1
+    concat
+    box_get
+    // smart_contracts/blocksign/contract.py:228
+    // if not has_sgh:
+    bnz issign_after_if_else@2
+    // smart_contracts/blocksign/contract.py:229
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+issign_after_if_else@2:
+    // smart_contracts/blocksign/contract.py:231
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+
+issign_while_top@3:
+    // smart_contracts/blocksign/contract.py:232
+    // while i < sgh_blob.length:
+    frame_dig 2
+    len
+    dup
+    frame_bury 1
+    frame_dig 0
+    >
+    bz issign_after_while@7
+    // smart_contracts/blocksign/contract.py:233
+    // if sgh_blob[i : i + UInt64(32)] == Txn.sender.bytes:
+    frame_dig 0
+    dup
+    frame_dig 1
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 0
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 2
+    cover 2
+    substring3
+    txn Sender
+    ==
+    bz issign_while_top@3
+    // smart_contracts/blocksign/contract.py:234
+    // return UInt64(1)
+    intc_1 // 1
+    frame_bury 0
+    retsub
+
+issign_after_while@7:
+    // smart_contracts/blocksign/contract.py:237
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.iscomplete(file_hash: bytes) -> uint64:
+iscomplete:
+    // smart_contracts/blocksign/contract.py:239-240
+    // @arc4.abimethod()
+    // def iscomplete(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    intc_0 // 0
+    dupn 2
+    bytec_0 // ""
+    dupn 5
+    // smart_contracts/blocksign/contract.py:241
+    // assert Global.group_size == 1, "invalid group size"
+    global GroupSize
+    intc_1 // 1
+    ==
+    assert // invalid group size
+    // smart_contracts/blocksign/contract.py:243
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:244
+    // if canceled_exists and canceled_flag == UInt64(1):
+    bz iscomplete_after_if_else@3
+    frame_dig 9
+    intc_1 // 1
+    ==
+    bz iscomplete_after_if_else@3
+    // smart_contracts/blocksign/contract.py:245
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+iscomplete_after_if_else@3:
+    // smart_contracts/blocksign/contract.py:247
+    // sgn_blob, has_sgn = self.signers_blob_by_hash.maybe(file_hash)
+    bytec 4 // 0x73676e5f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:248
+    // if not has_sgn or sgn_blob.length == UInt64(0):
+    bz iscomplete_if_body@5
+    frame_dig 1
+    len
+    dup
+    frame_bury 7
+    bnz iscomplete_after_if_else@6
+
+iscomplete_if_body@5:
+    // smart_contracts/blocksign/contract.py:249
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+iscomplete_after_if_else@6:
+    // smart_contracts/blocksign/contract.py:251
+    // sgh_blob, has_sgh = self.signed_blob_by_hash.maybe(file_hash)
+    bytec_2 // 0x7367685f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    frame_bury 0
+    // smart_contracts/blocksign/contract.py:252
+    // if not has_sgh or sgh_blob.length == UInt64(0):
+    bz iscomplete_if_body@8
+    frame_dig 0
+    len
+    dup
+    frame_bury 8
+    bnz iscomplete_after_if_else@9
+
+iscomplete_if_body@8:
+    // smart_contracts/blocksign/contract.py:253
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+iscomplete_after_if_else@9:
+    // smart_contracts/blocksign/contract.py:255
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 5
+
+iscomplete_while_top@10:
+    // smart_contracts/blocksign/contract.py:256
+    // while i < sgn_blob.length:
+    frame_dig 5
+    frame_dig 7
+    <
+    bz iscomplete_after_while@19
+    // smart_contracts/blocksign/contract.py:257
+    // signer_bytes = sgn_blob[i : i + UInt64(32)]
+    frame_dig 5
+    dup
+    frame_dig 7
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 5
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 1
+    cover 2
+    substring3
+    frame_bury 2
+    // smart_contracts/blocksign/contract.py:258
+    // j = UInt64(0)
+    intc_0 // 0
+    frame_bury 6
+    // smart_contracts/blocksign/contract.py:259
+    // found = UInt64(0)
+    intc_0 // 0
+    frame_bury 3
+
+iscomplete_while_top@12:
+    // smart_contracts/blocksign/contract.py:260
+    // while j < sgh_blob.length:
+    frame_dig 6
+    frame_dig 8
+    <
+    frame_dig 3
+    frame_bury 4
+    bz iscomplete_after_while@16
+    // smart_contracts/blocksign/contract.py:261
+    // if sgh_blob[j : j + UInt64(32)] == signer_bytes:
+    frame_dig 6
+    dup
+    frame_dig 8
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 6
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 0
+    cover 2
+    substring3
+    frame_dig 2
+    ==
+    bz iscomplete_while_top@12
+    // smart_contracts/blocksign/contract.py:262
+    // found = UInt64(1)
+    intc_1 // 1
+    frame_bury 4
+
+iscomplete_after_while@16:
+    frame_dig 4
+    // smart_contracts/blocksign/contract.py:265
+    // if found == UInt64(0):
+    bnz iscomplete_while_top@10
+    // smart_contracts/blocksign/contract.py:266
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+iscomplete_after_while@19:
+    // smart_contracts/blocksign/contract.py:269
+    // return UInt64(1)
+    intc_1 // 1
+    frame_bury 0
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.reject(file_hash: bytes, signer: bytes) -> uint64:
+reject:
+    // smart_contracts/blocksign/contract.py:271-272
+    // @arc4.abimethod()
+    // def reject(self, file_hash: arc4.DynamicBytes, signer: arc4.Address) -> UInt64:
+    proto 2 1
+    intc_0 // 0
+    dup
+    bytec_0 // ""
+    dupn 4
+    // smart_contracts/blocksign/contract.py:273
+    // assert Global.group_size == 1, "invalid group size"
+    global GroupSize
+    intc_1 // 1
+    ==
+    assert // invalid group size
+    // smart_contracts/blocksign/contract.py:275
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -2
+    concat
+    dup
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:276
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    bz reject_bool_false@3
+    frame_dig 8
+    intc_1 // 1
+    ==
+    bz reject_bool_false@3
+    intc_1 // 1
+
+reject_bool_merge@4:
+    // smart_contracts/blocksign/contract.py:276
+    // assert not (canceled_exists and canceled_flag == 1), "hash canceled"
+    !
+    assert // hash canceled
+    // smart_contracts/blocksign/contract.py:278
+    // asset_id, exists = self.asset_by_hash.maybe(file_hash)
+    bytec 5 // 0x6173615f
+    frame_dig -2
+    concat
+    box_get
+    swap
+    btoi
+    frame_bury 2
+    // smart_contracts/blocksign/contract.py:279
+    // assert exists, "hash not found"
+    assert // hash not found
+    // smart_contracts/blocksign/contract.py:281
+    // assert signer.bytes == Txn.sender.bytes, "sender mismatch"
+    frame_dig -1
+    txn Sender
+    ==
+    assert // sender mismatch
+    // smart_contracts/blocksign/contract.py:283
+    // sgn_blob, has_sgn = self.signers_blob_by_hash.maybe(file_hash)
+    bytec 4 // 0x73676e5f
+    frame_dig -2
+    concat
+    dup
+    frame_bury 0
+    box_get
+    swap
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:284
+    // assert has_sgn, "no signers set"
+    assert // no signers set
+    // smart_contracts/blocksign/contract.py:285
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 5
+    // smart_contracts/blocksign/contract.py:286
+    // authorized = UInt64(0)
+    intc_0 // 0
+    frame_bury 3
+
+reject_while_top@5:
+    // smart_contracts/blocksign/contract.py:287
+    // while i < sgn_blob.length:
+    frame_dig 1
+    len
+    dup
+    frame_bury 6
+    frame_dig 5
+    >
+    frame_dig 3
+    frame_bury 4
+    bz reject_after_while@9
+    // smart_contracts/blocksign/contract.py:288
+    // if sgn_blob[i : i + UInt64(32)] == signer.bytes:
+    frame_dig 5
+    dup
+    frame_dig 6
+    dup
+    cover 3
+    >=
+    dig 1
+    dig 3
+    uncover 2
+    select
+    swap
+    intc_2 // 32
+    +
+    dup
+    frame_bury 5
+    dup
+    dig 3
+    >=
+    swap
+    uncover 3
+    uncover 2
+    select
+    dup
+    dig 2
+    <
+    dig 2
+    swap
+    select
+    frame_dig 1
+    cover 2
+    substring3
+    frame_dig -1
+    ==
+    bz reject_while_top@5
+    // smart_contracts/blocksign/contract.py:289
+    // authorized = UInt64(1)
+    intc_1 // 1
+    frame_bury 4
+
+reject_after_while@9:
+    frame_dig 4
+    // smart_contracts/blocksign/contract.py:292
+    // assert authorized == UInt64(1), "unauthorized signer"
+    intc_1 // 1
+    ==
+    assert // unauthorized signer
+    // smart_contracts/blocksign/contract.py:294-296
+    // itxn.AssetConfig(
+    //     config_asset=Asset(asset_id),
+    // ).submit()
+    itxn_begin
+    frame_dig 2
+    dup
+    itxn_field ConfigAsset
+    // smart_contracts/blocksign/contract.py:294
+    // itxn.AssetConfig(
+    intc_3 // acfg
+    itxn_field TypeEnum
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/blocksign/contract.py:294-296
+    // itxn.AssetConfig(
+    //     config_asset=Asset(asset_id),
+    // ).submit()
+    itxn_submit
+    // smart_contracts/blocksign/contract.py:298
+    // self.canceled_by_hash[file_hash] = UInt64(1)
+    intc_1 // 1
+    itob
+    frame_dig 7
+    swap
+    box_put
+    // smart_contracts/blocksign/contract.py:299
+    // self.signers_blob_by_hash[file_hash] = Bytes(b"")
+    frame_dig 0
+    dup
+    box_del
+    pop
+    bytec_0 // 0x
+    box_put
+    // smart_contracts/blocksign/contract.py:300
+    // self.signed_blob_by_hash[file_hash] = Bytes(b"")
+    bytec_2 // 0x7367685f
+    frame_dig -2
+    concat
+    dup
+    box_del
+    pop
+    bytec_0 // 0x
+    box_put
+    // smart_contracts/blocksign/contract.py:302
+    // return asset_id
+    frame_bury 0
+    retsub
+
+reject_bool_false@3:
+    intc_0 // 0
+    b reject_bool_merge@4
+
+
+// smart_contracts.blocksign.contract.Blocksign.my_contracts() -> bytes:
+my_contracts:
+    // smart_contracts/blocksign/contract.py:304-305
+    // @arc4.abimethod()
+    // def my_contracts(self) -> Bytes:
+    proto 0 1
+    // smart_contracts/blocksign/contract.py:311
+    // blob, has = self.user_hashes.maybe(key)
+    bytec 6 // 0x7568735f
+    // smart_contracts/blocksign/contract.py:310
+    // key = arc4.Address(Txn.sender.bytes)
+    txn Sender
+    // smart_contracts/blocksign/contract.py:311
+    // blob, has = self.user_hashes.maybe(key)
+    concat
+    box_get
+    // smart_contracts/blocksign/contract.py:312
+    // if not has:
+    bnz my_contracts_after_if_else@2
+    // smart_contracts/blocksign/contract.py:313
+    // return Bytes(b"")
+    bytec_0 // 0x
+    swap
+    retsub
+
+my_contracts_after_if_else@2:
+    // smart_contracts/blocksign/contract.py:314
+    // return blob
+    frame_dig 0
+    swap
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.get_asset_id(file_hash: bytes) -> uint64:
+get_asset_id:
+    // smart_contracts/blocksign/contract.py:316-318
+    // # ---- Ayrı okuma metodları (tuple yerine) ----
+    // @arc4.abimethod()
+    // def get_asset_id(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    // smart_contracts/blocksign/contract.py:319
+    // asset_id, has_asset = self.asset_by_hash.maybe(file_hash)
+    bytec 5 // 0x6173615f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:320
+    // if not has_asset:
+    bnz get_asset_id_after_if_else@2
+    // smart_contracts/blocksign/contract.py:321
+    // return UInt64(0)
+    intc_0 // 0
+    swap
+    retsub
+
+get_asset_id_after_if_else@2:
+    // smart_contracts/blocksign/contract.py:322
+    // return asset_id
+    frame_dig 0
+    swap
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.is_active(file_hash: bytes) -> uint64:
+is_active:
+    // smart_contracts/blocksign/contract.py:324-325
+    // @arc4.abimethod()
+    // def is_active(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    // smart_contracts/blocksign/contract.py:326
+    // canceled_flag, canceled_exists = self.canceled_by_hash.maybe(file_hash)
+    bytec_3 // 0x64656c5f
+    frame_dig -1
+    concat
+    box_get
+    swap
+    btoi
+    swap
+    // smart_contracts/blocksign/contract.py:327
+    // if canceled_exists and canceled_flag == UInt64(1):
+    bz is_active_after_if_else@3
+    frame_dig 0
+    intc_1 // 1
+    ==
+    bz is_active_after_if_else@3
+    // smart_contracts/blocksign/contract.py:328
+    // return UInt64(0)
+    intc_0 // 0
+    swap
+    retsub
+
+is_active_after_if_else@3:
+    // smart_contracts/blocksign/contract.py:329
+    // return UInt64(1)
+    intc_1 // 1
+    swap
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.total_signers(file_hash: bytes) -> uint64:
+total_signers:
+    // smart_contracts/blocksign/contract.py:331-332
+    // @arc4.abimethod()
+    // def total_signers(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    bytec_0 // ""
+    dup
+    // smart_contracts/blocksign/contract.py:333
+    // sgn_blob, has_sgn = self.signers_blob_by_hash.maybe(file_hash)
+    bytec 4 // 0x73676e5f
+    frame_dig -1
+    concat
+    box_get
+    // smart_contracts/blocksign/contract.py:334
+    // if not has_sgn:
+    bnz total_signers_after_if_else@2
+    // smart_contracts/blocksign/contract.py:335
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+total_signers_after_if_else@2:
+    // smart_contracts/blocksign/contract.py:336-337
+    // # 32 baytlık parça say
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:338
+    // cnt = UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+
+total_signers_while_top@3:
+    // smart_contracts/blocksign/contract.py:339
+    // while i < sgn_blob.length:
+    frame_dig 2
+    len
+    frame_dig 1
+    >
+    bz total_signers_after_while@5
+    // smart_contracts/blocksign/contract.py:340
+    // cnt = cnt + UInt64(1)
+    frame_dig 0
+    intc_1 // 1
+    +
+    frame_bury 0
+    // smart_contracts/blocksign/contract.py:341
+    // i = i + UInt64(32)
+    frame_dig 1
+    intc_2 // 32
+    +
+    frame_bury 1
+    b total_signers_while_top@3
+
+total_signers_after_while@5:
+    // smart_contracts/blocksign/contract.py:342
+    // return cnt
+    retsub
+
+
+// smart_contracts.blocksign.contract.Blocksign.signed_count(file_hash: bytes) -> uint64:
+signed_count:
+    // smart_contracts/blocksign/contract.py:344-345
+    // @arc4.abimethod()
+    // def signed_count(self, file_hash: arc4.DynamicBytes) -> UInt64:
+    proto 1 1
+    bytec_0 // ""
+    dup
+    // smart_contracts/blocksign/contract.py:346
+    // sgh_blob, has_sgh = self.signed_blob_by_hash.maybe(file_hash)
+    bytec_2 // 0x7367685f
+    frame_dig -1
+    concat
+    box_get
+    // smart_contracts/blocksign/contract.py:347
+    // if not has_sgh:
+    bnz signed_count_after_if_else@2
+    // smart_contracts/blocksign/contract.py:348
+    // return UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+    retsub
+
+signed_count_after_if_else@2:
+    // smart_contracts/blocksign/contract.py:349-350
+    // # 32 baytlık parça say
+    // i = UInt64(0)
+    intc_0 // 0
+    frame_bury 1
+    // smart_contracts/blocksign/contract.py:351
+    // cnt = UInt64(0)
+    intc_0 // 0
+    frame_bury 0
+
+signed_count_while_top@3:
+    // smart_contracts/blocksign/contract.py:352
+    // while i < sgh_blob.length:
+    frame_dig 2
+    len
+    frame_dig 1
+    >
+    bz signed_count_after_while@5
+    // smart_contracts/blocksign/contract.py:353
+    // cnt = cnt + UInt64(1)
+    frame_dig 0
+    intc_1 // 1
+    +
+    frame_bury 0
+    // smart_contracts/blocksign/contract.py:354
+    // i = i + UInt64(32)
+    frame_dig 1
+    intc_2 // 32
+    +
+    frame_bury 1
+    b signed_count_while_top@3
+
+signed_count_after_while@5:
+    // smart_contracts/blocksign/contract.py:355
+    // return cnt
+    retsub

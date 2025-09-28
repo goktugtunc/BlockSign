@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pymysql
+sqlalchemy
+python-dotenv
+requests
+mysql-connector-python
+cryptography
+psycopg2-binary
+base58
+ecdsa
+PyJWT
+python-multipart
+python-jose
+py-algorand-sdk
