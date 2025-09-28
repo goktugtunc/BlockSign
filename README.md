@@ -187,18 +187,6 @@ Builds a **single unsigned AppCall** for `reject(file_hash, signer)` (boxes: `as
 
 ---
 
-## Troubleshooting
-
-- **`AttributeError: abi.ABIMethod`**: Your container likely has an old `py-algorand-sdk`.  
-  - Either upgrade: `pip install --upgrade py-algorand-sdk`, or  
-  - Use this repo’s approach (`Method` + `ABIType`) which already avoids `ABIMethod`.
-- **`box not found`**: The `file_hash` (CID) may not have been created yet (no `create_contract`), or you are querying a different CID.  
-- **`invalid group size` / `group index`**: `create_contract` requires **two txs** (Gtxn[0]=Payment, Gtxn[1]=AppCall) signed and submitted **in order**.  
-- **`overspend / fee`**: Make sure AppCall fee is **2000–3000 µAlgo** when inner `AssetConfig` is involved.  
-- **CORS**: Ensure your frontend origin is whitelisted on the backend.
-
----
-
 ## Security Notes
 
 - **Never send mnemonics/private keys to the backend.** All signing happens in the user’s wallet (Lute).  
